@@ -89,6 +89,11 @@ class Human:
         self.gladness += 10
         self.home.mess += 5
 
+    def weekand(self):
+        self.gladness += 15
+        self.home.mess += 10
+        self.money -= 20
+
     def clean_home(self):
         self.gladness -= 5
         self.home.mess = 0
@@ -138,7 +143,7 @@ class Human:
             self.get_job()
             print(f"I don't have a job, I'm going toget a job {self.job.job} with salary {self.job.salary}")
         self.days_indexes(day)
-        dice = random.randint(1, 4)
+        dice = random.randint(1, 5)
         if self.satiety < 20:
             print("I'll go eat")
             self.eat()
@@ -167,6 +172,9 @@ class Human:
         elif dice == 4:
             print("Time for treats!")
             self.shopping(manage="delicacies")
+        elif dice == 5:
+            print("Weekand time")
+            self.weekand()
 
 
 class Auto:
